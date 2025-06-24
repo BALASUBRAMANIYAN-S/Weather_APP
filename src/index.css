@@ -1,0 +1,192 @@
+/* Global Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #83a4d4, #b6fbff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main Container */
+.header-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(5px);
+}
+
+/* Heading */
+.header {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #4ae236;
+  margin-bottom: 10px;
+  animation: zoomIn 0.6s ease-in-out;
+}
+
+/* Subheading */
+.header-p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Input Field */
+.inputbox {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.inputbox:focus {
+  outline: none;
+  border-color: #00bcd4;
+  box-shadow: 0 0 8px #00bcd4;
+}
+
+/* Glowing Button */
+.btn.glow-on-hover {
+  width: 100%;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: #111;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(
+    45deg,
+    #ff0000, #ff7300, #fffb00,
+    #48ff00, #00ffd5, #002bff,
+    #7a00ff, #ff00c8, #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(5px);
+  z-index: -1;
+  opacity: 0;
+  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out;
+  animation: glowing 20s linear infinite;
+}
+
+.btn.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.btn.glow-on-hover:after {
+  content: '';
+  background: #111;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  border-radius: 10px;
+}
+
+.btn.glow-on-hover:active {
+  transform: scale(0.97);
+  color: #000;
+}
+
+/* Weather Report Section */
+.report {
+  margin-top: 25px;
+  text-align: left;
+  animation: fadeIn 1s ease-in;
+}
+
+.report h4 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.report h4:hover {
+  color: #00bcd4;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .header-container {
+    padding: 25px 20px;
+  }
+
+  .header {
+    font-size: 1.8rem;
+  }
+
+  .report h4 {
+    font-size: 1rem;
+  }
+
+  .btn.glow-on-hover {
+    font-size: 0.95rem;
+  }
+}
