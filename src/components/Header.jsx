@@ -26,7 +26,7 @@ function Header() {
         <div className='header-container'>
 
             <h1 className='header'>
-                Wheater Report
+                weather Report
             </h1>
             <p className='header-p'>
                 Get the latest weather updates for your location.
